@@ -30,7 +30,7 @@ var landing = require ('./controllers/landing');
 var complain = require ('./controllers/complain');
 var inbox = require ('./controllers/inbox');
 var appointment = require ('./controllers/appointment');
-
+var receipt = require ('./controllers/receipt');
 var app = express();
 
 app.set('view engine ', 'ejs');
@@ -64,5 +64,5 @@ app.use ('/',landing);
 app.use ('/complain',complain);
 app.use ('/inbox',inbox);
 app.use ('/appointment',appointment);
-
+app.use ('/receipt',receipt);
 // app.use('/doctors/add_doctor',add_doc);

@@ -114,7 +114,7 @@ module.exports.getallappointment = function(callback){
  }
 
  module.exports.searchEmp = function(key,callback){
-    var query='SELECT  *from employee where name  like "%'+key+'%"' ;
+    var query='SELECT  *from employee where name  like ("%'+key+'%") OR id like ("%'+key+'%")' ;
     con.query(query,callback);
     console.log(query);
 }
@@ -161,8 +161,8 @@ module.exports.setpassword =function(id,newpassword,callback){
     con.query(query,callback);
 }
 
-module.exports.add_employee = function(name,email,contact,join_date,role,callback){
-    var query = "Insert into `employee` (`name`,`email`,`contact`,`join_date`,`role`) values ('"+name+"','"+email+"','"+contact+"','"+join_date+"','"+role+"')";
+module.exports.add_employee = function(name,email,contact,join_date,role,salary,callback){
+    var query = "Insert into `employee` (`name`,`email`,`contact`,`join_date`,`role`) values ('"+name+"','"+email+"','"+contact+"','"+join_date+"','"+role+"','"+salary+"')";
     con.query(query,callback);
     console.log(query);
 }
