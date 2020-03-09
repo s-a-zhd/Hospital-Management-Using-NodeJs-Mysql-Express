@@ -34,9 +34,8 @@ router.post('/add',function(req,res){
     var contact = req.body.contact;
     var join_date = req.body.date;
     var role = req.body.role;
-    var salary = req.body.salary;
 
-    db.add_employee(name,email,contact,join_date,role,salary,function(err,result){
+    db.add_employee(name,email,contact,join_date,role,function(err,result){
         console.log('employee inserted!!');
         res.redirect('/employee');
     });
@@ -66,7 +65,7 @@ router.get('/edit_employee/:id',function(req,res){
 
 router.post('/edit_employee/:id',function(req,res){
     var id = req.params.id;
-    db.editEmp(id,req.body.name,req.body.email,req.body.contact,req.body.date,req.body.role,req.body.salary,function(err,result){
+    db.editEmp(id,req.body.name,req.body.email,req.body.contact,req.body.date,req.body.role,function(err,result){
         res.redirect('/employee');
     });
 
