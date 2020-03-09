@@ -49,7 +49,7 @@ router.post('/',function(req , res){
             service : 'gmail',
             auth: {
                 user: 'zihad.24bd@gmail.com',
-                pass: 'Slipknot555@'
+                pass: ''
             }
 
         });
