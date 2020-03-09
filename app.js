@@ -10,6 +10,8 @@ var nodmailer = require ('nodemailer');
 var crypto = require ('crypto');
 var expressValidator = require ('express-validator');
 var  sweetalert = require('sweetalert2');
+var app = express();
+
 
 
 var bodyParser = require ('body-parser');
@@ -31,7 +33,8 @@ var complain = require ('./controllers/complain');
 var inbox = require ('./controllers/inbox');
 var appointment = require ('./controllers/appointment');
 var receipt = require ('./controllers/receipt');
-var app = express();
+var chat = require ('./controllers/chat');
+
 
 app.set('view engine ', 'ejs');
 
@@ -45,7 +48,7 @@ app.use(cookie());
 //app.use(expressValidator());
 
 
-app.listen(3000 , function(){
+var server =app.listen(3000 , function(){
 
     console.log('server started');
 });
@@ -65,4 +68,9 @@ app.use ('/complain',complain);
 app.use ('/inbox',inbox);
 app.use ('/appointment',appointment);
 app.use ('/receipt',receipt);
+app.use ('/chat',chat);
+
+
+
+
 // app.use('/doctors/add_doctor',add_doc);

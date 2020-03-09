@@ -37,7 +37,7 @@ router.post('/',function(req , res){
                 <li>User ID: `+ id + `</li>
                 <li>Token: `+ token + `</li>
             </ul>
-            <p>verify Link: <a href="http://localhost:3000/verify">LOGIN</a></p>
+            <p>verify Link: <a href="http://localhost:3000/verify">Verify</a></p>
             
             <p><strong>This is an automatically generated mail. Please do not reply back.</strong></p>
             
@@ -49,7 +49,7 @@ router.post('/',function(req , res){
             service : 'gmail',
             auth: {
                 user: 'zihad.24bd@gmail.com',
-                pass: ''
+                pass: 'Slipknot555@'
             }
 
         });

@@ -6,6 +6,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var db = require.main.require ('./models/db_controller');
 var  sweetalert = require('sweetalert2');
+const { check, validationResult } = require('express-validator');
 
 
 
@@ -36,7 +37,15 @@ router.use(bodyParser.urlencoded({extended : true}));
 router.use(bodyParser.json());
 
 
-router.post('/', function(request , response){
+router.post('/',[
+    check('username').notEmpty().withMessage("Username is reequired"),
+    check('password').notEmpty().withMessage("Password is reequired")
+    
+], function(request , response){
+    const errors = validationResult(request);
+    if (!errors.isEmpty()) {
+        return response.status(422).json({ errors: errors.array() });
+      }
 
     var username = request.body.username;
     var password = request.body.password;
@@ -53,7 +62,7 @@ router.post('/', function(request , response){
                     response.send("please verify your email");
                 }
                 else{
-                    sweetalert.fire('Hello world!');
+                    sweetalert.fire('logged In!');
                     response.redirect('/home');
                 }
                

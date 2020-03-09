@@ -220,3 +220,30 @@ module.exports.updateverify = function (email,email_status,callback){
     con.query(query,callback);
     
 }
+
+
+module.exports.add_dept = function (name,desc,callback){
+    var query = "insert into departments(department_name,department_desc) values ('"+name+"','"+desc+"')";
+    con.query(query,callback);
+}
+
+
+module.exports.getalldept = function (callback){
+    var query = "select * from departments";
+    con.query(query,callback);
+}
+
+module.exports.delete_department = function(id,callback){
+    var query = "delete from departments where id="+id;
+    con.query(query,callback);
+}
+
+module.exports.getdeptbyId = function(id,callback){
+    var query = "select * from departments where id="+id;
+    con.query(query,callback);
+}
+
+module.exports.edit_dept= function(id,name,desc,callback){
+    var query = "update departments set department_name='"+name+"',department_desc='"+desc+"' where id="+id;
+    con.query(query,callback);
+}

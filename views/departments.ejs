@@ -2,18 +2,16 @@
 <html lang="en">
 
 
-<!-- salary-view23:28-->
+<!-- departments23:21-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
     <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
     <!--[if lt IE 9]>
 		<script src="/assets/js/html5shiv.min.js"></script>
 		<script src="/assets/js/respond.min.js"></script>
@@ -43,7 +41,7 @@
                                     <a href="activities.html">
                                         <div class="media">
 											<span class="avatar">
-												<img alt="John Doe" src="/assets/img/user.jpg" class="img-fluid">
+												<img alt="John Doe" src="/assets/img/user.jpg" class="img-fluid rounded-circle">
 											</span>
 											<div class="media-body">
 												<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
@@ -150,7 +148,7 @@
                         <li>
                             <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
                         </li>
 						<li class="submenu">
@@ -176,7 +174,7 @@
 							<a href="#"><i class="fa fa-book"></i> <span> Payroll </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="salary.html"> Employee Salary </a></li>
-								<li><a class="active" href="salary-view.html"> Payslip </a></li>
+								<li><a href="salary-view.html"> Payslip </a></li>
 							</ul>
 						</li>
                         <li>
@@ -294,128 +292,54 @@
             </div>
         </div>
         <div class="page-wrapper">
-            <div class="content" id="">
+            <div class="content">
                 <div class="row">
-                    <div class="col-sm-5 col-4">
-                        <h4 class="page-title">Payslip</h4>
+                    <div class="col-sm-5 col-5">
+                        <h4 class="page-title">Departments</h4>
                     </div>
-                    <div class="col-sm-7 col-8 text-right m-b-30">
-                        <div class="btn-group btn-group-sm">
-                            <button class="btn btn-white">CSV</button>
-                            <button class="btn btn-white" id="cmd">PDF</button>
-                            <button class="btn btn-white"><i class="fa fa-print fa-lg"></i> Print</button>
-                        </div>
+                    <div class="col-sm-7 col-7 text-right m-b-30">
+                        <a href="/home/add_departments" class="btn btn-primary btn-rounded"><i class="fa fa-plus"></i> Add Department</a>
                     </div>
                 </div>
-                <div class="row" id="content">
+                <div class="row">
                     <div class="col-md-12">
-                        <div class="card-box">
-                            <h4 class="payslip-title">Payslip for the month of July 2018</h4>
-                            <div class="row">
-                                <div class="col-sm-6 m-b-20">
-                                    <img src="/assets/img/logo-dark.png" class="inv-logo" alt="">
-                                    <ul class="list-unstyled mb-0">
-                                        <li>PreClinic</li>
-                                        <li>3864 Quiet Valley Lane,</li>
-                                        <li>Sherman Oaks, CA, 91403</li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6 m-b-20">
-                                    <div class="invoice-details">
-                                        <h3 class="text-uppercase">Payslip #49029</h3>
-                                        <ul class="list-unstyled">
-                                            <li>Salary Month: <span>July, 2018</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12 m-b-20">
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <h5 class="mb-0"><strong><%=name%></strong></h5></li>
-                                        <li><span><%=role%></span></li>
-                                        <li>Employee ID:<%=id%></li>
-                                        <li>Joining Date: <%=join_date%></li>
-                                        <li>Email : <%=email%></li>
-                                        <li>Contact : <%=contact%></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div>
-                                        <h4 class="m-b-10"><strong>Earnings</strong></h4>
-                                        <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Basic Salary</strong> <span class="float-right">$<%=salary%></span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>House Rent Allowance (H.R.A.)</strong> <span class="float-right">$55</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Conveyance</strong> <span class="float-right">$55</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Other Allowance</strong> <span class="float-right">$55</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Total Earnings</strong> <span class="float-right"><strong>$55</strong></span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div>
-                                        <h4 class="m-b-10"><strong>Deductions</strong></h4>
-                                        <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Tax Deducted at Source (T.D.S.)</strong> <span class="float-right">$0</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Provident Fund</strong> <span class="float-right">$0</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>ESI</strong> <span class="float-right">$0</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Loan</strong> <span class="float-right">$300</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Total Deductions</strong> <span class="float-right"><strong>$59698</strong></span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <p><strong>Net Salary: $59698</strong> (Fifty nine thousand six hundred and ninety eight only.)</p>
-                                </div>
-                            </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped custom-table mb-0 datatable">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Department Name</th>
+                                        <th>Department description</th>
+                                        <th class="text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (var i = 0; i < list.length; i++){ %>
+                                    <tr>
+                                        <td><%= list[i].id%></td>
+                                        <td><%= list[i].department_name%></td>
+										<td><%= list[i].department_desc%></td>
+                                        <td class="text-right">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="/home/edit_department/<%= list[i].id%>"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_department"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <% } %>
+                                    </tr>
+                                   
+                                   
+                                    
+                                    
+                                    
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-
-                <script>
-                    var doc = new jsPDF();
-    var specialElementHandlers = {
-    '#editor': function (element, renderer) {
-        return true;
-    }
-};
-
-$('#cmd').click(function () {   
-    doc.fromHTML($('#content').html(), 15, 15, {
-        'width': 170,
-            'elementHandlers': specialElementHandlers
-    });
-    doc.save('report.pdf');
-});
-
-                </script>
             </div>
             <div class="notification-box">
                 <div class="msg-sidebar notifications msg-noti">
@@ -627,15 +551,34 @@ $('#cmd').click(function () {
                 </div>
             </div>
         </div>
+		<div id="delete_department" class="modal fade delete-modal" role="dialog">
+            <% for (var i = 0; i < list.length; i++){ %>
+                <form action="/home/delete_department/<%=list[i].id%>" method="post">
+                    <% } %>
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-body text-center">
+						<img src="/assets/img/sent.png" alt="" width="50" height="46">
+						<h3>Are you sure want to delete this Department?</h3>
+						<div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+							<button type="submit" class="btn btn-danger">Delete</button>
+						</div>
+					</div>
+				</div>
+            </div>
+        </form>
+		</div>
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="/assets/js/jquery-3.2.1.min.js"></script>
 	<script src="/assets/js/popper.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.dataTables.min.js"></script>
+    <script src="/assets/js/dataTables.bootstrap4.min.js"></script>
     <script src="/assets/js/jquery.slimscroll.js"></script>
     <script src="/assets/js/app.js"></script>
 </body>
 
 
-<!-- salary-view23:28-->
+<!-- departments23:21-->
 </html>

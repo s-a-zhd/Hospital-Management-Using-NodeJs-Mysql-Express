@@ -2,7 +2,7 @@
 <html lang="en">
 
 
-<!-- salary-view23:28-->
+<!-- add-department24:07-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -10,10 +10,8 @@
     <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/select2.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/0.9.0rc1/jspdf.min.js"></script>
     <!--[if lt IE 9]>
 		<script src="/assets/js/html5shiv.min.js"></script>
 		<script src="/assets/js/respond.min.js"></script>
@@ -43,7 +41,7 @@
                                     <a href="activities.html">
                                         <div class="media">
 											<span class="avatar">
-												<img alt="John Doe" src="/assets/img/user.jpg" class="img-fluid">
+												<img alt="John Doe" src="/assets/img/user.jpg" class="img-fluid rounded-circle">
 											</span>
 											<div class="media-body">
 												<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
@@ -150,7 +148,7 @@
                         <li>
                             <a href="schedule.html"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="departments.html"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
                         </li>
 						<li class="submenu">
@@ -176,7 +174,7 @@
 							<a href="#"><i class="fa fa-book"></i> <span> Payroll </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
 								<li><a href="salary.html"> Employee Salary </a></li>
-								<li><a class="active" href="salary-view.html"> Payslip </a></li>
+								<li><a href="salary-view.html"> Payslip </a></li>
 							</ul>
 						</li>
                         <li>
@@ -208,7 +206,7 @@
                             </ul>
                         </li>
 						<li>
-							<a href="/assets.html"><i class="fa fa-cube"></i> <span>/assets</span></a>
+							<a href="assets.html"><i class="fa fa-cube"></i> <span>Assets</span></a>
 						</li>
 						<li>
 							<a href="activities.html"><i class="fa fa-bell-o"></i> <span>Activities</span></a>
@@ -294,130 +292,32 @@
             </div>
         </div>
         <div class="page-wrapper">
-            <div class="content" id="">
+            <div class="content">
                 <div class="row">
-                    <div class="col-sm-5 col-4">
-                        <h4 class="page-title">Payslip</h4>
-                    </div>
-                    <div class="col-sm-7 col-8 text-right m-b-30">
-                        <div class="btn-group btn-group-sm">
-                            <button class="btn btn-white">CSV</button>
-                            <button class="btn btn-white" id="cmd">PDF</button>
-                            <button class="btn btn-white"><i class="fa fa-print fa-lg"></i> Print</button>
-                        </div>
+                    <div class="col-lg-8 offset-lg-2">
+                        <h4 class="page-title">Add Department</h4>
                     </div>
                 </div>
-                <div class="row" id="content">
-                    <div class="col-md-12">
-                        <div class="card-box">
-                            <h4 class="payslip-title">Payslip for the month of July 2018</h4>
-                            <div class="row">
-                                <div class="col-sm-6 m-b-20">
-                                    <img src="/assets/img/logo-dark.png" class="inv-logo" alt="">
-                                    <ul class="list-unstyled mb-0">
-                                        <li>PreClinic</li>
-                                        <li>3864 Quiet Valley Lane,</li>
-                                        <li>Sherman Oaks, CA, 91403</li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6 m-b-20">
-                                    <div class="invoice-details">
-                                        <h3 class="text-uppercase">Payslip #49029</h3>
-                                        <ul class="list-unstyled">
-                                            <li>Salary Month: <span>July, 2018</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <form action="/home/add_departments" method="POST">
+							<div class="form-group">
+								<label>Department Name</label>
+								<input class="form-control" type="text" name="dpt_name">
+							</div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea cols="30" rows="4" class="form-control" name="desc"></textarea>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-12 m-b-20">
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <h5 class="mb-0"><strong><%=name%></strong></h5></li>
-                                        <li><span><%=role%></span></li>
-                                        <li>Employee ID:<%=id%></li>
-                                        <li>Joining Date: <%=join_date%></li>
-                                        <li>Email : <%=email%></li>
-                                        <li>Contact : <%=contact%></li>
-                                    </ul>
-                                </div>
+                            
+                            <div class="m-t-20 text-center">
+                                <button class="btn btn-primary submit-btn">Add Department</button>
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div>
-                                        <h4 class="m-b-10"><strong>Earnings</strong></h4>
-                                        <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Basic Salary</strong> <span class="float-right">$<%=salary%></span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>House Rent Allowance (H.R.A.)</strong> <span class="float-right">$55</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Conveyance</strong> <span class="float-right">$55</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Other Allowance</strong> <span class="float-right">$55</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Total Earnings</strong> <span class="float-right"><strong>$55</strong></span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div>
-                                        <h4 class="m-b-10"><strong>Deductions</strong></h4>
-                                        <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Tax Deducted at Source (T.D.S.)</strong> <span class="float-right">$0</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Provident Fund</strong> <span class="float-right">$0</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>ESI</strong> <span class="float-right">$0</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Loan</strong> <span class="float-right">$300</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Total Deductions</strong> <span class="float-right"><strong>$59698</strong></span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="col-sm-12">
-                                    <p><strong>Net Salary: $59698</strong> (Fifty nine thousand six hundred and ninety eight only.)</p>
-                                </div>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
-
-                <script>
-                    var doc = new jsPDF();
-    var specialElementHandlers = {
-    '#editor': function (element, renderer) {
-        return true;
-    }
-};
-
-$('#cmd').click(function () {   
-    doc.fromHTML($('#content').html(), 15, 15, {
-        'width': 170,
-            'elementHandlers': specialElementHandlers
-    });
-    doc.save('report.pdf');
-});
-
-                </script>
             </div>
-            <div class="notification-box">
+			<div class="notification-box">
                 <div class="msg-sidebar notifications msg-noti">
                     <div class="topnav-dropdown-header">
                         <span>Messages</span>
@@ -633,9 +533,10 @@ $('#cmd').click(function () {
 	<script src="/assets/js/popper.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/select2.min.js"></script>
     <script src="/assets/js/app.js"></script>
 </body>
 
 
-<!-- salary-view23:28-->
+<!-- add-department24:07-->
 </html>
