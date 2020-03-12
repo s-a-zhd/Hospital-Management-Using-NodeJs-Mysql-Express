@@ -3,6 +3,14 @@ var router = express.Router();
 var db = require.main.require ('./models/db_controller');
 var bodyPaser = require ('body-parser');
 
+router.get('*', function(req, res, next){
+	if(req.cookies['username'] == null){
+		res.redirect('/login');
+	}else{
+		next();
+	}
+});
+
 router.get('/',function(req,res){
     db.getallappointment(function(err,result){
         console.log(result);
@@ -40,6 +48,15 @@ router.post('/edit_appointment/:id',function(req,res){
     });
 });
 
+
+router.get('/delete_appointment/:id',function(req,res){
+    var id = req.params.id;
+    db.getappointmentbyid(id,function(err,result){
+        console.log(result);
+        res.render('delete_appointment.ejs',{list:result});
+    })
+    
+});
 
 router.post('/delete_appointment/:id',function(req,res){
     var id =req.params.id;

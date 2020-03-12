@@ -140,7 +140,7 @@
                         <li >
                             <a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
-						<li class="active">
+						<li>
                             <a href="/doctors"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
                         </li>
                         <li>
@@ -180,7 +180,7 @@
                             </ul>
                         </li>
                        
-						<li>
+						<li> class="active"
 							<a href="/store"><i class="fa fa-cube"></i> <span>Medicine Store</span></a>
 						</li>
 						
@@ -200,122 +200,80 @@
             <div class="content">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
-                        <h4 class="page-title">Edit Doctor</h4>
+                        <h4 class="page-title">Delete Medicine</h4>
                     </div>
                 </div>
                 <div class="row">
-
                     <div class="col-lg-8 offset-lg-2">
-                        <form method="POST">
+                        <% for (var i = 0; i < list.length; i++){ %>
+                        <form method="POST" action="/store/delete_med/<%= list[i].id %>">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <% for (var i = 0; i < list.length; i++){ %>
-                                        <label>First Name <span class="text-danger">*</span></label>
-                                        <input class="form-control" type="text" name="first_name" value="<%= list[i].first_name %>">
+                                       
+                                        <label>Medicine Name</label>
+                                        <input class="form-control" type="text" name="name" value="<%= list[i].name %>">
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input class="form-control" type="text" name="last_name" value="<%= list[i].last_name %>">
+                           
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        
+                                        <label>Purchase Date</label>
+                                        <div class="cal-icon">
+                                        <input class="form-control  datetimepicker" type="text" name="p_date" value="<%= list[i].p_date %>">
+                                    </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
-                                   
-                                </div>
-                                <div class="col-sm-6">
+                                
+                            </div>
+                            
+                            <div class="row">
+                               
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Email <span class="text-danger">*</span></label>
-                                        <input class="form-control" type="email" name="email" value="<%= list[i].email %>">
+                                        <label>Expire</label>
+                                        <input class="form-control" type="text" name="expire" value="<%= list[i].expire %>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Expire date</label>
+                                        <div class="cal-icon">
+                                        <input class="form-control datetimepicker" type="text" name="e_date" value="<%= list[i].expire_end%>"> </div>
                                     </div>
                                 </div>
                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Price</label>
+                                        <input class="form-control" type="text" placeholder="$" name="price" value="<%= list[i].price %>">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <input class="form-control" type="text" placeholder="" name="quantity" value="<%= list[i].quantity %>">
+                                    </div>
+                                </div>
                                 
-								<div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Date of Birth</label>
-                                        <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker" name="dob" value="<%= list[i].dob %>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-									<div class="form-group gender-select">
-										<label class="gen-label">Gender:</label>
-										<div class="form-check-inline">
-											<label class="form-check-label">
-												<input type="radio" name="gender" class="form-check-input" value="male" >Male
-											</label>
-										</div>
-										<div class="form-check-inline">
-											<label class="form-check-label">
-												<input type="radio" name="gender" class="form-check-input" value="female">Female
-											</label>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-12">
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group">
-												<label>Address</label>
-												<input type="text" class="form-control " name="address" value="<%= list[i].address %>">
-											</div>
-										</div>
-										
-										
-										
-										
-									</div>
-								</div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Phone </label>
-                                        <input class="form-control" type="text" name="phone" value="<%= list[i].phone %>">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-									<div class="form-group">
-										<label>Avatar</label>
-										<div class="profile-upload">
-											<div class="upload-img">
-												<img alt="" src="/assets/img/user.jpg">
-											</div>
-											<div class="upload-input">
-												<input type="file" class="form-control" name="image" value="<%= list[i].image %>">
-											</div>
-										</div>
-									</div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-6 col-lg-3">
-                                    <div class="form-group">
-                                        <label>Department</label>
-                                        <select class="form-control select" name="department" value="<%= list[i].department %>">
-                                            <option value="Neurology">Neurology</option>
-                                            <option value="Opthalmology">Opthalmology</option>
-                                            <option value="Orthopedics">Orthopedics</option>
-                                            <option value="Cancer Department" >Cancer Department</option>
-                                            <option value="ENT Department " >ENT Department</option>
-                                        </select>
-                                    </div>
-                                </div>
+                               
+                               
                             </div>
-							<div class="form-group">
-                                <label>Short Biography</label>
-                                <textarea class="form-control" rows="3" cols="30" name="biography" value="<%= list[i].biography %>"></textarea>
-                            </div>
-
-                            <% } %>
-                   
                             <div class="m-t-20 text-center">
-                                <button class="btn btn-primary submit-btn">Edit Doctor</button>
+                                <button class="btn btn-primary submit-btn">Delete Medicine</button>
+                                <% } %>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+
+
 			<div class="notification-box">
                 <div class="msg-sidebar notifications msg-noti">
                     <div class="topnav-dropdown-header">
@@ -528,7 +486,7 @@
         </div>
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
-    <script src="/ass/ets/js/jquery-3.2.1.min.js"></script>
+     <script src="/assets/js/jquery-3.2.1.min.js"></script>
 	<script src="/assets/js/popper.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/jquery.slimscroll.js"></script>
@@ -539,5 +497,5 @@
 </body>
 
 
-<!-- add-doctor24:06-->
+<!-- add-asset24:09-->
 </html>

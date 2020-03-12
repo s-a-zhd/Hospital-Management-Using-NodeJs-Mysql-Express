@@ -140,13 +140,13 @@
                         <li >
                             <a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
-						<li class="active">
+						<li>
                             <a href="/doctors"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
                         </li>
                         <li>
                             <a href="/patients"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="/appointment"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
                         </li>
                        
@@ -196,170 +196,91 @@
                 </div>
             </div>
         </div>
-        <div class="page-wrapper">
-            <div class="content">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <h4 class="page-title">Add Doctor</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <form method="POST" enctype="multipart/form-data">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>First Name <span class="text-danger">*</span></label>
-                                        <input class="form-control" type="text" name="first_name">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Last Name</label>
-                                        <input class="form-control" type="text" name="last_name">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                   
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Email <span class="text-danger">*</span></label>
-                                        <input class="form-control" type="email" name="email">
-                                    </div>
-                                </div>
-                               
-                                
-								<div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Date of Birth</label>
-                                        <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker" name="dob">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-									<div class="form-group gender-select">
-										<label class="gen-label">Gender:</label>
-										<div class="form-check-inline">
-											<label class="form-check-label">
-												<input type="radio" name="gender" class="form-check-input" value="male" >Male
-											</label>
-										</div>
-										<div class="form-check-inline">
-											<label class="form-check-label">
-												<input type="radio" name="gender" class="form-check-input" value="female">Female
-											</label>
-										</div>
-									</div>
-                                </div>
-								<div class="col-sm-12">
-									<div class="row">
-										<div class="col-sm-12">
-											<div class="form-group">
-												<label>Address</label>
-												<input type="text" class="form-control " name="address">
-											</div>
-										</div>
-										
-										
-										
-										
-									</div>
-								</div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>Phone </label>
-                                        <input class="form-control" type="text" name="phone">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-									<div class="form-group">
-										<label>Avatar</label>
-										<div class="profile-upload">
-											<div class="upload-img">
-												<img alt="" src="/assets/img/user.jpg">
-											</div>
-											<div class="upload-input">
-												<input type="file" class="form-control" name="image">
-											</div>
-										</div>
-									</div>
-                                </div>
+    </div>
 
-                                <div class="col-sm-6 col-md-6 col-lg-3">
-                                    <div class="form-group">
-                                        <label>Department</label>
-                                        
-                                        <select class="" name="department">
-                                            <% for (var i = 0; i < list.length; i++){ %>
-                                            <option name="<%= list[i].department_name%>"><%= list[i].department_name%></option>
-                                            <% } %>
-                                        </select>
-                                        
-                                       
-                                    </div>
-                                </div>
-                            </div>
-							<div class="form-group">
-                                <label>Short Biography</label>
-                                <textarea class="form-control" rows="3" cols="30" name="biography"></textarea>
-                            </div>
-                   
-                            <div class="m-t-20 text-center">
-                                <button class="btn btn-primary submit-btn">Create Doctor</button>
-                            </div>
-                        </form>
-                    </div>
+    <div class="page-wrapper">
+        <div class="content">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h4 class="page-title">Delete Appointment</h4>
                 </div>
             </div>
-			<div class="notification-box">
-                <div class="msg-sidebar notifications msg-noti">
-                    <div class="topnav-dropdown-header">
-                        <span>Messages</span>
-                    </div>
-                    <div class="drop-scroll msg-list-scroll" id="msg_list">
-                        <ul class="list-box">
-                            <li>
-                                <a href="chat.html">
-                                    <div class="list-item">
-                                        <div class="list-left">
-                                            <span class="avatar">R</span>
-                                        </div>
-                                        <div class="list-body">
-                                            <span class="message-author">Richard Miles </span>
-                                            <span class="message-time">12:28 AM</span>
-                                            <div class="clearfix"></div>
-                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                          
-                            
-                            
-                             
-                            
-                          
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <form method="POST">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <% for (var i = 0; i < list.length; i++){ %>
+                                    <label>Patient Name </label>
+                                    <input class="form-control" type="text" name="p_name" value="<%= list[i].patient_name%>">
+                                </div>
+                            </div>
                            
-                        </ul>
-                    </div>
-                    
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Department</label>
+                                    <select class="" name="department">
+                                        
+                                        <option value="Dentists">Dentists</option>
+                                        <option value="Neurology">Neurology</option>
+                                        <option value="Opthalmology">Opthalmology</option>
+                                        <option value="Orthopedics">Orthopedics</option>
+                                        <option value="Cancer Departmen">Cancer Department</option>
+                                        <option value="ENT Departmen">ENT Department</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Doctor Name</label>
+                                    <input type="text" name="d_name" id="" value="<%= list[i].doctor_name%>">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <div class="cal-icon">
+                                        <input type="text" class="form-control datetimepicker" name="date" value="<%= list[i].date%>">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <div class="time-icon">
+                                        <input type="text" class="form-control" id="datetimepicker3" name="time" value="<%= list[i].time%>">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Patient Email</label>
+                                    <input class="form-control" type="email" name="email" value="<%= list[i].email%>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Patient Phone Number</label>
+                                    <input class="form-control" type="text" name="phone" value="<%= list[i].phone%>">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <% } %>
+                        <div class="m-t-20 text-center">
+                            <button class="btn btn-primary submit-btn">Delete Appointment</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="sidebar-overlay" data-reff=""></div>
-    <script src="/assets/js/jquery-3.2.1.min.js"></script>
-	<script src="/assets/js/popper.min.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/jquery.slimscroll.js"></script>
-    <script src="/assets/js/select2.min.js"></script>
-	<script src="/assets/js/moment.min.js"></script>
-	<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="/assets/js/app.js"></script>
-</body>
-
-
-<!-- add-doctor24:06-->
-</html>
+    </body>
+    </html>
+        

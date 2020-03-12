@@ -32,14 +32,12 @@ var landing = require ('./controllers/landing');
 var complain = require ('./controllers/complain');
 var inbox = require ('./controllers/inbox');
 var appointment = require ('./controllers/appointment');
-<<<<<<< HEAD
+
 var receipt = require ('./controllers/receipt');
 var chat = require ('./controllers/chat');
 
-=======
-
 var app = express();
->>>>>>> parent of 4ab0ad2... second commit
+
 
 app.set('view engine ', 'ejs');
 
@@ -72,13 +70,6 @@ app.use ('/',landing);
 app.use ('/complain',complain);
 app.use ('/inbox',inbox);
 app.use ('/appointment',appointment);
-<<<<<<< HEAD
-app.use ('/receipt',receipt);
-app.use ('/chat',chat);
-
-
-
-=======
->>>>>>> parent of 4ab0ad2... second commit
+app.use('/receipt',receipt);
 
 // app.use('/doctors/add_doctor',add_doc);

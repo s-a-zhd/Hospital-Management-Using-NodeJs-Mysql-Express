@@ -34,8 +34,9 @@ router.post('/add',function(req,res){
     var contact = req.body.contact;
     var join_date = req.body.date;
     var role = req.body.role;
+    var salary = req.body.salary;
 
-    db.add_employee(name,email,contact,join_date,role,function(err,result){
+    db.add_employee(name,email,contact,join_date,role,salary,function(err,result){
         console.log('employee inserted!!');
         res.redirect('/employee');
     });
@@ -55,6 +56,40 @@ router.get('/add_leave',function(req,res){
     
 });
 
+router.get('/edit_leave/:id',function(req,res){
+
+    var id = req.params.id;
+    db.getleavebyid(id,function(err,result){
+        res.render('edit_leave.ejs',{user:result});
+    });
+});
+
+router.post('/edit_leave/:id',function(req,res){
+    var id = req.params.id;
+    db.edit_leave(id,req.body.name,req.body.leave_type,req.body.from,req.body.to,req.body.reason,function(err,result){
+        res.redirect('/employee/leave');
+    });
+});
+
+router.get('/delete_leave/:id',function(req,res){
+    var id = req.params.id;
+    db.getleavebyid(id,function(err,result){
+
+        res.render('delete_leave.ejs' ,{user : result});
+    });
+});
+
+router.post('/delete_leave/:id',function(req,res){
+    var id = req.params.id;
+    
+    db.deleteleave(id,function(err,result){
+        res.redirect('/employee/leave');
+    });
+
+});
+
+
+
 router.get('/edit_employee/:id',function(req,res){
     var id = req.params.id;
     db.getEmpbyId(id,function(err,result){
@@ -63,12 +98,22 @@ router.get('/edit_employee/:id',function(req,res){
     });
 });
 
+
+
 router.post('/edit_employee/:id',function(req,res){
     var id = req.params.id;
     db.editEmp(id,req.body.name,req.body.email,req.body.contact,req.body.date,req.body.role,function(err,result){
         res.redirect('/employee');
     });
 
+});
+
+router.get('/delete_employee/:id',function(req,res){
+    var id = req.params.id;
+    db.getEmpbyId(id,function(err,result){
+
+        res.render('delete_employee.ejs' ,{list : result});
+    });
 });
 
 router.post('/delete_employee/:id',function(req,res){

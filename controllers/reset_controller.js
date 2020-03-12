@@ -45,7 +45,7 @@ router.post('/',function(req,res){
             service : 'gmail',
             auth: {
                 user: 'zihad.24bd@gmail.com',
-                pass: ''
+                pass: 'TheScript18@'
             }
 
         });

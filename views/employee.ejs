@@ -115,8 +115,8 @@
 						<span>Admin</span>
                     </a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="/profile">My Profile</a>
-						<a class="dropdown-item" href="/edit-profile">Edit Profile</a>
+						<a class="dropdown-item" href="/home/profile">My Profile</a>
+						<a class="dropdown-item" href="/home/edit-profile">Edit Profile</a>
 						
 						<a class="dropdown-item" href="/logout">Logout</a>
 					</div>
@@ -125,8 +125,8 @@
             <div class="dropdown mobile-user-menu float-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="/profile">My Profile</a>
-                    <a class="dropdown-item" href="/edit-profile">Edit Profile</a>
+                    <a class="dropdown-item" href="/home/profile">My Profile</a>
+                    <a class="dropdown-item" href="/home/edit-profile">Edit Profile</a>
                     
                     <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
@@ -137,7 +137,7 @@
                 <div id="sidebar-menu" class="sidebar-menu">
                     <ul>
                         <li class="menu-title">Main</li>
-                        <li class="active">
+                        <li >
                             <a href="/home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
 						<li>
@@ -149,11 +149,9 @@
                         <li>
                             <a href="/appointment"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
                         </li>
+                       
                         <li>
-                            <a href="schedule"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
-                        </li>
-                        <li>
-                            <a href="/departments"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
+                            <a href="/home/departments"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
                         </li>
 						<li class="submenu">
 							<a href="#"><i class="fa fa-user"></i> <span> Employees </span> <span class="menu-arrow"></span></a>
@@ -163,21 +161,12 @@
 								
 							</ul>
 						</li>
-						<li class="submenu">
-							<a href="#"><i class="fa fa-money"></i> <span> Accounts </span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="invoices.html">Invoices</a></li>
-								<li><a href="payments.html">Payments</a></li>
-								<li><a href="expenses.html">Expenses</a></li>
-								<li><a href="taxes.html">Taxes</a></li>
-								<li><a href="provident-fund.html">Provident Fund</a></li>
-							</ul>
-						</li>
+						
 						<li class="submenu">
 							<a href="#"><i class="fa fa-book"></i> <span> Payroll </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="salary.html"> Employee Salary </a></li>
-								<li><a href="salary-view.html"> Payslip </a></li>
+								<li><a href="/receipt"> Employee Salary </a></li>
+								
 							</ul>
 						</li>
                        
@@ -185,9 +174,9 @@
                         <li class="submenu">
                             <a href="#"><i class="fa fa-envelope"></i> <span> Email</span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">
-                                <li><a href="compose.html">Compose Mail</a></li>
+                                <li><a href="/compose">Compose Mail</a></li>
                                 <li><a href="/inbox">Inbox</a></li>
-                                <li><a href="mail-view.html">Mail View</a></li>
+                                
                             </ul>
                         </li>
                        
@@ -195,13 +184,7 @@
 							<a href="/store"><i class="fa fa-cube"></i> <span>Medicine Store</span></a>
 						</li>
 						
-						<li class="submenu">
-							<a href="#"><i class="fa fa-flag-o"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="expense-reports.html"> Expense Report </a></li>
-								<li><a href="invoice-reports.html"> Invoice Report </a></li>
-							</ul>
-						</li>
+					
                        
                         
                        
@@ -274,7 +257,7 @@
                                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     <a class="dropdown-item" href="/employee/edit_employee/<%= employee[i].id %>"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="/employee/delete_employee/<%= employee[i].id %>" data-toggle="modal" data-target="#delete_employee"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                    <a class="dropdown-item" href="/employee/delete_employee/<%= employee[i].id %>" ><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                                 </div>
                                             </div>
                                         </td>

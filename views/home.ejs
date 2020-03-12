@@ -6,15 +6,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
     <title>Preclinic - Medical & Hospital - Bootstrap 4 Admin Template</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     <!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
+		<script src="/assets/js/html5shiv.min.js"></script>
+		<script src="/assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
 
@@ -25,7 +25,7 @@
         <div class="header">
 			<div class="header-left">
 				<a href="/home" class="logo">
-					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
+					<img src="/assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
 				</a>
 			</div>
 			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
@@ -43,7 +43,7 @@
                                     <a href="activities.html">
                                         <div class="media">
 											<span class="avatar">
-												<img alt="John Doe" src="assets/img/user.jpg" class="img-fluid">
+												<img alt="John Doe" src="/assets/img/user.jpg" class="img-fluid">
 											</span>
 											<div class="media-body">
 												<p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
@@ -109,14 +109,14 @@
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
                         <span class="user-img">
-							<img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="Admin">
+							<img class="rounded-circle" src="/assets/img/user.jpg" width="24" alt="Admin">
 							<span class="status online"></span>
 						</span>
 						<span>Admin</span>
                     </a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="/profile">My Profile</a>
-						<a class="dropdown-item" href="/edit-profile">Edit Profile</a>
+						<a class="dropdown-item" href="/home/profile">My Profile</a>
+						<a class="dropdown-item" href="/home/edit-profile">Edit Profile</a>
 						
 						<a class="dropdown-item" href="/logout">Logout</a>
 					</div>
@@ -125,8 +125,8 @@
             <div class="dropdown mobile-user-menu float-right">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="/profile">My Profile</a>
-                    <a class="dropdown-item" href="/edit-profile">Edit Profile</a>
+                    <a class="dropdown-item" href="/home/profile">My Profile</a>
+                    <a class="dropdown-item" href="/home/edit-profile">Edit Profile</a>
                     
                     <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
@@ -149,9 +149,7 @@
                         <li>
                             <a href="/appointment"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
                         </li>
-                        <li>
-                            <a href="schedule"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
-                        </li>
+                       
                         <li>
                             <a href="/home/departments"><i class="fa fa-hospital-o"></i> <span>Departments</span></a>
                         </li>
@@ -163,21 +161,12 @@
 								
 							</ul>
 						</li>
-						<li class="submenu">
-							<a href="#"><i class="fa fa-money"></i> <span> Accounts </span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="invoices.html">Invoices</a></li>
-								<li><a href="payments.html">Payments</a></li>
-								<li><a href="expenses.html">Expenses</a></li>
-								<li><a href="taxes.html">Taxes</a></li>
-								<li><a href="provident-fund.html">Provident Fund</a></li>
-							</ul>
-						</li>
+						
 						<li class="submenu">
 							<a href="#"><i class="fa fa-book"></i> <span> Payroll </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="salary.html"> Employee Salary </a></li>
-								<li><a href="salary-view.html"> Payslip </a></li>
+								<li><a href="/receipt"> Employee Salary </a></li>
+								
 							</ul>
 						</li>
                        
@@ -185,9 +174,9 @@
                         <li class="submenu">
                             <a href="#"><i class="fa fa-envelope"></i> <span> Email</span> <span class="menu-arrow"></span></a>
                             <ul style="display: none;">
-                                <li><a href="compose.html">Compose Mail</a></li>
+                                <li><a href="/compose">Compose Mail</a></li>
                                 <li><a href="/inbox">Inbox</a></li>
-                                <li><a href="mail-view.html">Mail View</a></li>
+                                
                             </ul>
                         </li>
                        
@@ -195,13 +184,7 @@
 							<a href="/store"><i class="fa fa-cube"></i> <span>Medicine Store</span></a>
 						</li>
 						
-						<li class="submenu">
-							<a href="#"><i class="fa fa-flag-o"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
-							<ul style="display: none;">
-								<li><a href="expense-reports.html"> Expense Report </a></li>
-								<li><a href="invoice-reports.html"> Invoice Report </a></li>
-							</ul>
-						</li>
+					
                        
                         
                        
@@ -340,7 +323,7 @@
                                     <li>
                                         <div class="contact-cont">
                                             <div class="float-left user-img m-r-10">
-                                                <a href="profile.html" title="John Doe"><img src="assets/images/upload_images/<%= doclist[i].image %>"" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
+                                                <a href="profile.html" title="John Doe"><img src="/assets/images/upload_images/<%= doclist[i].image %>"" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
                                             </div>
                                             <div class="contact-info">
                                                 <span class="contact-name text-ellipsis"><%= doclist[i].first_name%> <%= doclist[i].last_name%></span>
@@ -374,7 +357,7 @@
 										<tbody>
 											<tr>
 												<td>
-													<img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt=""> 
+													<img width="28" height="28" class="rounded-circle" src="/assets/img/user.jpg" alt=""> 
 													<h2>John Doe</h2>
 												</td>
 												<td>Johndoe21@gmail.com</td>
@@ -383,7 +366,7 @@
 											</tr>
 											<tr>
 												<td>
-													<img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt=""> 
+													<img width="28" height="28" class="rounded-circle" src="/assets/img/user.jpg" alt=""> 
 													<h2>Richard</h2>
 												</td>
 												<td>Richard123@yahoo.com</td>
@@ -392,7 +375,7 @@
 											</tr>
 											<tr>
 												<td>
-													<img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt=""> 
+													<img width="28" height="28" class="rounded-circle" src="/assets/img/user.jpg" alt=""> 
 													<h2>Villiam</h2>
 												</td>
 												<td>Richard123@yahoo.com</td>
@@ -401,7 +384,7 @@
 											</tr>
 											<tr>
 												<td>
-													<img width="28" height="28" class="rounded-circle" src="assets/img/user.jpg" alt=""> 
+													<img width="28" height="28" class="rounded-circle" src="/assets/img/user.jpg" alt=""> 
 													<h2>Martin</h2>
 												</td>
 												<td>Richard123@yahoo.com</td>
@@ -692,13 +675,13 @@
         </div>
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.slimscroll.js"></script>
-    <script src="assets/js/Chart.bundle.js"></script>
-    <script src="assets/js/chart.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="/assets/js/jquery-3.2.1.min.js"></script>
+	<script src="/assets/js/popper.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/jquery.slimscroll.js"></script>
+    <script src="/assets/js/Chart.bundle.js"></script>
+    <script src="/assets/js/chart.js"></script>
+    <script src="/assets/js/app.js"></script>
 
 </body>
 

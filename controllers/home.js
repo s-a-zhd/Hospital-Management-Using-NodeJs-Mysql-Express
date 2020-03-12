@@ -21,7 +21,8 @@ router.get('/',function(req,res){
     db.getAllDoc(function(err,result){
         db.getallappointment(function(err,result1){
         var total_doc = result.length ;
-        var appointment = result1.length; 
+        var appointment = result1.length;
+         
         res.render('home.ejs',{doc : total_doc , doclist : result, appointment : appointment, applist : result1});
         });
         //console.log(result.length);
@@ -53,6 +54,13 @@ router.post('/add_departments',function(req,res){
     });
 });
 
+router.get('/delete_department/:id',function(req,res){
+
+    var id = req.params.id;
+    db.getdeptbyId(id,function(err,result){
+        res.render('delete_department.ejs',{list:result});
+    });
+});
 
 router.post('/delete_department/:id',function(req,res){
     var id = req.params.id;
@@ -74,6 +82,38 @@ router.post('/edit_department/:id',function(req,res){
     db.edit_dept(req.params.id,req.body.dpt_name,req.body.desc,function(err,result){
         res.redirect('/home/departments');
     });
+});
+
+router.get('/profile',function(req,res){
+    var username = req.cookies['username'];
+    db.getuserdetails(username,function(err,result){
+        //console.log(result);
+        res.render('profile.ejs',{list:result});
+    });
+});
+
+router.post('/profile',function(req,res){
+    var username = req.cookies['username'];
+    db.getuserdetails(username,function(err,result){
+        var id = result[0].id;
+        var password = result[0].password;
+        var username = result[0].username; 
+        if (password== req.body.password){
+
+            db.edit_profile(id,req.body.username,req.body.email,req.body.new_password,function(err,result1){
+                if (result1){
+                    res.send("profile edited successfully");
+                }
+                if(!result1){ res.send("old password did not match");}
+                   
+                
+
+            });
+        }
+        
+
+
+    }) ;
 });
 
 module.exports =router;

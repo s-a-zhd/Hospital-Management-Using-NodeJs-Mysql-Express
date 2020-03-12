@@ -54,6 +54,15 @@ router.post('/edit_med/:id',function(req,res){
 
 });
 
+router.get('/delete_med/:id',function(req,res){
+    var id = req.params.id;
+    db.getMedbyId(id,function(err,result){
+        
+        res.render('delete_med.ejs' ,{list : result});
+    });
+});
+
+
 router.post('/delete_med/:id',function(req,res){
     var id = req.params.id;
     
@@ -63,5 +72,14 @@ router.post('/delete_med/:id',function(req,res){
 
 });
 
+
+router.post('/search',function(req,res){
+    var key = req.body.search;
+    db.searchmed(key,function(err,result){
+        console.log(result);
+        
+        res.render('store.ejs',{list : result});
+    });
+});
 
 module.exports = router ;

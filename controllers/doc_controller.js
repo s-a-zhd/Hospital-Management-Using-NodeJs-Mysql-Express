@@ -47,11 +47,16 @@ router.use(bodyParser.urlencoded({extended : true}));
 router.use(bodyParser.json());
 
 router.get('/add_doctor',function(req,res){
+    db.getalldept(function(err,result){
+        res.render('add_doctor.ejs',{list:result});
+    });
 
-    res.render('add_doctor.ejs');
+    
 });
 
 router.post('/add_doctor',upload.single("image"),function(req,res){
+
+    
 
         db.add_doctor(req.body.first_name,req.body.last_name,req.body.email,req.body.dob,req.body.gender,req.body.address,req.body.phone,req.file.filename,req.body.department,req.body.biography);
     if(db.add_doctor){
@@ -62,9 +67,13 @@ router.post('/add_doctor',upload.single("image"),function(req,res){
 
     router.get('/edit_doctor/:id',function(req,res){
         var id = req.params.id;
+
         db.getDocbyId(id,function(err,result){
 
-            res.render('edit_doctor.ejs' ,{list : result});
+            
+                res.render('edit_doctor.ejs' ,{list : result});
+           
+            
         });
     });
 
@@ -79,6 +88,15 @@ router.post('/add_doctor',upload.single("image"),function(req,res){
         
             
         });
+});
+
+router.get('/delete_doctor/:id',function(req,res){
+    var id = req.params.id;
+    db.getDocbyId(id,function(err,result){
+        res.render('delete_doctor.ejs',{list:result})
+    });
+
+    
 });
 
 router.post('/delete_doctor/:id',function(req,res){

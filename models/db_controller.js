@@ -113,6 +113,11 @@ module.exports.getallappointment = function(callback){
      console.log(query);
  }
 
+ module.exports.searchmed = function(key,callback){
+    var query='SELECT  *from store where name like "%'+key+'%"';
+    con.query(query,callback);
+ }
+
  module.exports.searchEmp = function(key,callback){
     var query='SELECT  *from employee where name  like "%'+key+'%"' ;
     con.query(query,callback);
@@ -161,8 +166,8 @@ module.exports.setpassword =function(id,newpassword,callback){
     con.query(query,callback);
 }
 
-module.exports.add_employee = function(name,email,contact,join_date,role,callback){
-    var query = "Insert into `employee` (`name`,`email`,`contact`,`join_date`,`role`) values ('"+name+"','"+email+"','"+contact+"','"+join_date+"','"+role+"')";
+module.exports.add_employee = function(name,email,contact,join_date,role,salary,callback){
+    var query = "Insert into `employee` (`name`,`email`,`contact`,`join_date`,`role`,`salary`) values ('"+name+"','"+email+"','"+contact+"','"+join_date+"','"+role+"','"+salary+"')";
     con.query(query,callback);
     console.log(query);
 }
@@ -185,7 +190,8 @@ module.exports.editmed =function(id,name,p_date,expire,e_date,price,quantity,cal
 }
 
 module.exports.getallmed =function (callback){
-    var query = "select *from store";
+    var query = "select *from store order by id desc";
+    console.log(query);
     con.query(query,callback);
 }
 
@@ -245,5 +251,32 @@ module.exports.getdeptbyId = function(id,callback){
 
 module.exports.edit_dept= function(id,name,desc,callback){
     var query = "update departments set department_name='"+name+"',department_desc='"+desc+"' where id="+id;
+    con.query(query,callback);
+}
+
+module.exports.getuserdetails = function(username,callback){
+    var query = "select * from users where username='"+username+"'";
+    con.query(query,callback);
+    console.log(query);
+}
+
+module.exports.edit_profile=function(id,username,email,password,callback){
+    var query = "update users set username ='"+username+"', email = '"+email+"',password='"+password+"' where id="+id;
+    con.query(query,callback);
+    console.log(query);
+}
+
+module.exports.getleavebyid = function(id,callback){
+    var query = "select * from leaves where id="+id;
+    con.query(query,callback);
+}
+
+module.exports.deleteleave = function(id,callback){
+    var query = "delete  from leaves where id="+id;
+    con.query(query,callback);
+}
+
+module.exports.edit_leave = function(id,name,leave_type,from,to,reason,callback){
+    var query = "update leaves set employee='"+name+"',leave_type='"+leave_type+"',date_from='"+from+"',date_to='"+to+"',reason='"+reason+"' where id="+id;
     con.query(query,callback);
 }
